@@ -1,4 +1,45 @@
-/* --- CONFIGURACIÓN BASE --- */
+/* --- VARIABLES DE COLOR (Para facilitar el cambio de tema) --- */
+:root {
+    --bg-body: #eef2f5;
+    --bg-container: #ffffff;
+    --text-main: #333333;
+    --text-secondary: #666666;
+    --border-color: #eeeeee;
+    --input-bg: #ffffff;
+    --card-bg: #ffffff;
+    
+    /* Colores de Precios */
+    --price-lista-bg: #ebf8ff;
+    --price-lista-text: #2b6cb0;
+    --price-lista-border: #bee3f8;
+    
+    --price-efectivo-bg: #f0fdf4;
+    --price-efectivo-text: #15803d;
+    --price-efectivo-border: #15803d;
+}
+
+/* --- COLORES MODO OSCURO --- */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #121212;
+        --bg-container: #1e1e1e;
+        --text-main: #e0e0e0;
+        --text-secondary: #aaaaaa;
+        --border-color: #333333;
+        --input-bg: #2d2d2d;
+        --card-bg: #252525;
+
+        --price-lista-bg: #1a365d;
+        --price-lista-text: #90cdf4;
+        --price-lista-border: #2b6cb0;
+
+        --price-efectivo-bg: #064e3b;
+        --price-efectivo-text: #6ee7b7;
+        --price-efectivo-border: #059669;
+    }
+}
+
+/* --- ESTILOS BASE --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,8 +49,9 @@
 
 html, body {
     height: 100%;
-    background-color: #eef2f5;
-    overflow: hidden; /* Evita el scroll doble en toda la pantalla */
+    background-color: var(--bg-body);
+    overflow: hidden;
+    transition: background-color 0.3s;
 }
 
 body {
@@ -23,18 +65,19 @@ body {
     width: 100%;
     max-width: 1200px;
     height: 95vh;
-    background: white;
+    background: var(--bg-container);
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s;
 }
 
 /* --- CABECERA --- */
 header h1 {
     text-align: center;
-    color: #333;
+    color: var(--text-main);
     margin-bottom: 15px;
     font-size: 1.5rem;
     flex-shrink: 0;
@@ -54,6 +97,8 @@ input {
     border: 2px solid #007bff;
     border-radius: 8px;
     outline: none;
+    background-color: var(--input-bg);
+    color: var(--text-main);
 }
 
 button {
@@ -66,27 +111,25 @@ button {
     cursor: pointer;
 }
 
-/* --- CUERPO DE LA APP (GRILLA) --- */
+/* --- ESTRUCTURA --- */
 .content-grid {
     display: flex;
-    flex-direction: column; /* Celular: Arriba y Abajo */
+    flex-direction: column; 
     gap: 20px;
-    flex: 1; /* Ocupa todo el espacio restante */
-    overflow: hidden; /* Permite que los hijos tengan su propio scroll */
+    flex: 1; 
+    overflow: hidden; 
 }
 
-/* SECCIÓN RESULTADOS */
 .result-section {
-    flex: 2; /* Toma más espacio */
-    overflow-y: auto; /* SCROLL HABILITADO */
+    flex: 2; 
+    overflow-y: auto; 
     padding-right: 10px;
-    min-height: 0; /* Truco de flexbox para que el scroll funcione */
+    min-height: 0;
 }
 
-/* SECCIÓN HISTORIAL */
 .history-section {
     flex: 1;
-    background-color: #f8f9fa;
+    background-color: var(--bg-body);
     border-radius: 10px;
     padding: 15px;
     display: flex;
@@ -99,26 +142,24 @@ button {
     flex: 1;
 }
 
-/* --- DISEÑO PARA PC (PANTALLAS GRANDES) --- */
+/* --- VISTA PC --- */
 @media (min-width: 800px) {
     .content-grid {
-        flex-direction: row; /* PC: Lado a Lado */
+        flex-direction: row; 
     }
-
     .result-section {
-        border-right: 2px solid #eee;
+        border-right: 2px solid var(--border-color);
         padding-right: 20px;
     }
-
     .history-section {
-        max-width: 350px; /* Ancho fijo para el historial en PC */
+        max-width: 350px; 
     }
 }
 
-/* --- TARJETAS DE PRODUCTO --- */
+/* --- TARJETAS --- */
 .product-card {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -130,7 +171,7 @@ button {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #222;
+    color: var(--text-main);
 }
 
 .price-box {
@@ -139,36 +180,37 @@ button {
     border-radius: 8px;
 }
 
-/* Precios Gigantes */
-.credit { background-color: #ebf8ff; border: 2px solid #bee3f8; }
-.credit .price-value { font-size: 4rem; color: #2b6cb0; font-weight: 800; }
+/* Precios Dinámicos */
+.credit { background-color: var(--price-lista-bg); border: 2px solid var(--price-lista-border); }
+.credit .price-value { font-size: 4rem; color: var(--price-lista-text); font-weight: 800; }
 
-.cash { background-color: #f0fdf4; border: 1px dashed #15803d; }
-.cash .price-value { font-size: 2.5rem; color: #15803d; font-weight: bold; }
+.cash { background-color: var(--price-efectivo-bg); border: 1px dashed var(--price-efectivo-border); }
+.cash .price-value { font-size: 2.5rem; color: var(--price-efectivo-text); font-weight: bold; }
 
-.price-label { font-size: 0.9rem; font-weight: bold; color: #555; display: block; }
+.price-label { font-size: 0.9rem; font-weight: bold; color: var(--text-secondary); display: block; }
 
 /* Historial Items */
 .history-item {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    background: white;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg);
     margin-bottom: 5px;
     border-radius: 5px;
     font-size: 0.9rem;
+    color: var(--text-main);
 }
 .h-desc { font-weight: 600; width: 60%; }
 .h-prices { text-align: right; }
-.h-list { color: #2b6cb0; font-weight: bold; }
+.h-list { color: var(--price-lista-text); font-weight: bold; }
 
-/* Scrollbar estética */
+/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
 
 .hidden { display: none; }
-.placeholder-text { text-align: center; color: #aaa; margin-top: 50px; }
+.placeholder-text { text-align: center; color: var(--text-secondary); margin-top: 50px; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
