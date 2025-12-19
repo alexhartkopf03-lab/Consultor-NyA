@@ -9,22 +9,22 @@
 html, body {
     height: 100%;
     background-color: #eef2f5;
-    overflow: hidden; 
+    overflow: hidden; /* Evita el scroll doble en toda la pantalla */
 }
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px; /* Menos padding para ganar espacio en móvil */
+    padding: 10px;
 }
 
 .main-container {
     width: 100%;
     max-width: 1200px;
-    height: 98vh; /* Aprovechar casi todo el alto del celular */
+    height: 95vh;
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
@@ -35,69 +35,63 @@ body {
 header h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
     flex-shrink: 0;
 }
 
 .search-box {
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 
 input {
     width: 100%;
-    padding: 12px;
-    font-size: 1.1rem;
+    padding: 15px;
+    font-size: 1.3rem;
     border: 2px solid #007bff;
     border-radius: 8px;
     outline: none;
 }
 
 button {
-    padding: 0 15px;
+    padding: 0 20px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-/* --- CUERPO DE LA APP --- */
+/* --- CUERPO DE LA APP (GRILLA) --- */
 .content-grid {
     display: flex;
-    flex-direction: column; 
-    gap: 10px;
-    flex: 1; 
-    overflow: hidden; 
+    flex-direction: column; /* Celular: Arriba y Abajo */
+    gap: 20px;
+    flex: 1; /* Ocupa todo el espacio restante */
+    overflow: hidden; /* Permite que los hijos tengan su propio scroll */
 }
 
-/* SECCIÓN RESULTADOS: Prioridad total */
+/* SECCIÓN RESULTADOS */
 .result-section {
-    flex: 1; /* En móvil, ocupa todo lo que puede */
-    overflow-y: auto;
-    padding-right: 5px;
-    min-height: 0;
+    flex: 2; /* Toma más espacio */
+    overflow-y: auto; /* SCROLL HABILITADO */
+    padding-right: 10px;
+    min-height: 0; /* Truco de flexbox para que el scroll funcione */
 }
 
-/* SECCIÓN HISTORIAL: Reducida en móvil */
+/* SECCIÓN HISTORIAL */
 .history-section {
-    flex-shrink: 0;
+    flex: 1;
     background-color: #f8f9fa;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    max-height: 250px; /* ALTO RESTRINGIDO EN MÓVIL */
-    border: 1px solid #eee;
-}
-
-.history-section h3 {
-    font-size: 0.85rem;
-    margin-bottom: 5px;
-    color: #777;
+    min-height: 0;
 }
 
 #historyList {
@@ -105,22 +99,19 @@ button {
     flex: 1;
 }
 
-/* --- DISEÑO PARA PC --- */
+/* --- DISEÑO PARA PC (PANTALLAS GRANDES) --- */
 @media (min-width: 800px) {
     .content-grid {
-        flex-direction: row; 
+        flex-direction: row; /* PC: Lado a Lado */
     }
 
     .result-section {
         border-right: 2px solid #eee;
         padding-right: 20px;
-        flex: 2;
     }
 
     .history-section {
-        max-width: 350px;
-        max-height: 100%; /* En PC puede ser alto completo */
-        flex: 1;
+        max-width: 350px; /* Ancho fijo para el historial en PC */
     }
 }
 
@@ -128,58 +119,58 @@ button {
 .product-card {
     background: #fff;
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     animation: fadeIn 0.2s ease-in;
 }
 
 .product-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #222;
-    text-transform: uppercase;
 }
 
 .price-box {
-    margin-bottom: 8px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
     border-radius: 8px;
 }
 
-/* Precios: El de Lista arriba y más grande */
+/* Precios Gigantes */
 .credit { background-color: #ebf8ff; border: 2px solid #bee3f8; }
-.credit .price-value { font-size: 3.5rem; color: #2b6cb0; font-weight: 800; }
+.credit .price-value { font-size: 4rem; color: #2b6cb0; font-weight: 800; }
 
 .cash { background-color: #f0fdf4; border: 1px dashed #15803d; }
-.cash .price-value { font-size: 2rem; color: #15803d; font-weight: bold; }
+.cash .price-value { font-size: 2.5rem; color: #15803d; font-weight: bold; }
 
-.price-label { font-size: 0.8rem; font-weight: bold; color: #555; display: block; }
+.price-label { font-size: 0.9rem; font-weight: bold; color: #555; display: block; }
 
-/* Historial Items: Más compactos */
+/* Historial Items */
 .history-item {
     display: flex;
     justify-content: space-between;
-    padding: 6px 10px;
-    border-bottom: 1px solid #eee;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     background: white;
-    margin-bottom: 3px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
-.h-desc { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 60%; }
-.h-prices { text-align: right; font-size: 0.75rem; }
+.h-desc { font-weight: 600; width: 60%; }
+.h-prices { text-align: right; }
+.h-list { color: #2b6cb0; font-weight: bold; }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+/* Scrollbar estética */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 
 .hidden { display: none; }
-.placeholder-text { text-align: center; color: #aaa; margin-top: 30px; font-size: 1rem; }
+.placeholder-text { text-align: center; color: #aaa; margin-top: 50px; }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
