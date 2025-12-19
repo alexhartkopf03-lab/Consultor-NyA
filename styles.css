@@ -277,12 +277,14 @@ button {
     }
 
     .credit .price-value {
-    font-size: 7.5rem;
+    font-size: 9rem;
     padding: 0px;
     margin: 0px;
     }
 
     .cash .price-value {
-    font-size: 5rem;
+    font-size: 7rem;
+    padding: 0px;
+    margin: 0px;
     }
 }
