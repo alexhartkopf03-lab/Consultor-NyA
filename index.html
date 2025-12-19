@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NyA - Consulta de Precios</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>NyA Buscador</h1>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Escanear código o escribir nombre..." inputmode="text" autofocus>
+            <button id="searchBtn">BUSCAR</button>
+        </div>
+
+        <div id="loading" class="hidden">Cargando lista de precios...</div>
+        <div id="error" class="hidden"></div>
+
+        <div class="content-grid">
+            
+            <div class="result-section">
+                <div id="resultContainer">
+                    <div class="placeholder-text">
+                        <p>🖥️ Escanea un producto</p>
+                        <p style="font-size: 0.9rem; margin-top:5px">El sistema está listo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3>📋 Historial Reciente</h3>
+                <div id="historyList">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
