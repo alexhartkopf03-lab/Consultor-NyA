@@ -288,3 +288,58 @@ button {
     margin: 0px;
     }
 }
+
+/* ... MANTÉN TUS VARIABLES Y ESTILOS ANTERIORES ... */
+
+/* AGREGAR ESTO PARA EL INDICADOR DE ESTADO */
+.status-badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-online {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.status-offline {
+    background-color: #ffedd5;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+}
+
+/* AGREGAR ESTO PARA EL ENCABEZADO DEL HISTORIAL */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 5px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.clear-btn:hover { opacity: 1; transform: scale(1.1); }
+
+/* Asegurarse que el loading se vea bien encima de todo */
+#loading {
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
