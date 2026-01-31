@@ -1,5 +1,5 @@
 // --- CONFIGURACIÓN ---
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRZIOFgQMtPc_h5FVoQIMAcpkoyXs3vminjL7rSvr2VCLmmgykBsH1AJ13ZnBYSvg/pub?output=csv'; 
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOn3sKZcuIVCma0QEMs1l4wa4k2sWW9WBXRU-mBQtyDkIoZww2TPPBlOy4xQxxmA/pubhtml'; 
 
 // Variables globales
 let inventory = [];
