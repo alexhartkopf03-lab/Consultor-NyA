@@ -1,5 +1,5 @@
 // --- CONFIGURACIÓN ---
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOn3sKZcuIVCma0QEMs1l4wa4k2sWW9WBXRU-mBQtyDkIoZww2TPPBlOy4xQxxmA/pubhtml';
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOn3sKZcuIVCma0QEMs1l4wa4k2sWW9WBXRU-mBQtyDkIoZww2TPPBlOy4xQxxmA/pub?ouput=csv'; // URL pública del CSV de Google Sheets
 const STORAGE_KEY_DATA = 'nya_inventory_data'; // Clave para guardar productos
 const STORAGE_KEY_DATE = 'nya_inventory_date'; // Clave para guardar fecha de actualización
 const STORAGE_KEY_HISTORY = 'nya_search_history'; // Clave para el historial
